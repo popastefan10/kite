@@ -1,11 +1,16 @@
 import React from "react";
+import "./AddSpotButton.css";
 
 class AddSpotButton extends React.Component {
   render() {
+    let className = this.props.className;
+
     return (
-      <button>
-        <span>Add Spot</span>
-      </button>
+      <div className={className}>
+        <button>
+          <span>Add Spot</span>
+        </button>
+      </div>
     );
   }
 }

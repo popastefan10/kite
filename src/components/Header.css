@@ -1,0 +1,30 @@
+:root {
+  --header-height: 60px;
+  --header-button-width: 100px
+}
+
+header {
+  height: var(--header-height);
+}
+
+.header-left {
+  height: var(--header-height);
+  display: flex;
+  flex-direction: row;
+  float: left;
+}
+
+.header-right {
+  height: var(--header-height);
+  display: flex;
+  flex-direction: row;
+  float: right;
+}
+
+.header-button {
+  width: var(--header-button-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

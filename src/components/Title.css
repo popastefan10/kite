@@ -1,0 +1,15 @@
+:root {
+  --title-margin: 0;
+  --title-padding: 0;
+}
+
+.title {
+  position: relative;
+}
+
+.title p {
+  margin: var(--title-margin);
+  padding: var(--title-padding);
+
+  text-align: center;
+}

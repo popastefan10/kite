@@ -1,0 +1,12 @@
+:root {
+  --avatar-img-size: 30px;
+  --avatar-img-border-color: grey;
+}
+
+.avatar-img {
+  height: var(--avatar-img-size);
+  width: var(--avatar-img-size);
+
+  border: 0px solid var(--avatar-img-border-color);
+  border-radius: 100%;
+}
