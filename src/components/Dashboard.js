@@ -11,6 +11,7 @@ class Dashboard extends React.Component {
 
   // https://www.pluralsight.com/guides/fetching-data-updating-state-react-class
   componentDidMount() {
+    // Get spots list from the API
     const API_ENDPOINT = "https://627d27b8e5ac2c452afe3162.mockapi.io/spot";
     fetch(API_ENDPOINT)
       .then((response) => {
@@ -32,7 +33,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <Header />
-        <Map />
+        <Map spots={this.state.spots}/>
         <LocationTable spots={this.state.spots} />
       </div>
     );

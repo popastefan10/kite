@@ -7,26 +7,37 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: 44.423,
+  lng: 26.112,
 };
 
 const API_KEY = "AIzaSyCFhIVkwY_rRptuPIZy7wjC_ZGw6MCTLTo";
 
 class Map extends React.Component {
+  createMarkers() {
+    let markers = this.props.spots.map((spot) => (
+      <Marker
+        position={{ lat: parseFloat(spot.lat), lng: parseFloat(spot.long) }}
+        key={spot.id}
+      />
+    ));
+
+    return markers;
+  }
+
   render() {
+    let markers = this.createMarkers();
+    console.log("In render function: ", markers);
+
     return (
       <div id="map">
         <LoadScript googleMapsApiKey={API_KEY}>
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={4}
+            zoom={3}
           >
-            <Marker
-              position={center}
-              key={Math.random()}
-            ></Marker>
+            {this.createMarkers()}
           </GoogleMap>
         </LoadScript>
       </div>
