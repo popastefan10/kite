@@ -1,0 +1,32 @@
+:root {
+  --table-rows-odd-color: white;
+  --table-rows-even-color: #f3f3f3;
+
+  --table-cells-padding: 0.3em;
+}
+
+.table-container table {
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 0px;
+}
+
+/* Table header */
+.table-container table thead {
+  background-color: #d8d8d8;
+}
+
+/* Table rows */
+.table-container table tbody tr:nth-child(odd) {
+  background-color: var(--table-rows-odd-color);
+}
+
+.table-container table tbody tr:nth-child(even) {
+  background-color: var(--table-rows-even-color);
+}
+
+/* Table cells */
+.table-container table td, .table-container table th {
+  padding: var(--table-cells-padding);
+  text-align: left;
+}

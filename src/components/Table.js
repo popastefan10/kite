@@ -1,5 +1,6 @@
 import React from "react";
 import spots from "../mockapi_data/spot_get.json";
+import "./Table.css";
 
 class Table extends React.Component {
   constructor(props) {
@@ -24,9 +25,9 @@ class Table extends React.Component {
       <tr key={spot.id}>
         <td>{spot.name}</td>
         <td>{spot.country}</td>
-        <td>{spot.lat}</td>
-        <td>{spot.long}</td>
-        <td>{spot.probability}</td>
+        <td>{parseFloat(spot.lat).toFixed(2)}</td>
+        <td>{parseFloat(spot.long).toFixed(2)}</td>
+        <td>{`${spot.probability}%`}</td>
         <td>{spot.month}</td>
       </tr>
     ));
@@ -39,10 +40,12 @@ class Table extends React.Component {
     let tableRows = this.getTableRows();
 
     return (
-      <table>
-        <thead>{tableHeading}</thead>
-        <tbody>{tableRows}</tbody>
-      </table>
+      <div className={"table-container"}>
+        <table className="sortable">
+          <thead>{tableHeading}</thead>
+          <tbody>{tableRows}</tbody>
+        </table>
+      </div>
     );
   }
 }
