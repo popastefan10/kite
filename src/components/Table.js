@@ -40,7 +40,7 @@ class Table extends React.Component {
     let tableRows = this.getTableRows();
 
     return (
-      <div className={"table-container"}>
+      <div className={"table-container"} style={this.props.style}>
         <table className="sortable">
           <thead>{tableHeading}</thead>
           <tbody>{tableRows}</tbody>

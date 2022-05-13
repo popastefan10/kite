@@ -6,7 +6,7 @@ import "./SearchBar.css";
 class SearchBar extends React.Component {
   render() {
     return (
-      <div className={"search-bar-container"}>
+      <div className={"search-bar-container"} style={this.props.style}>
         <div className={"search-bar-title"}>
           <h2>Locations</h2>
         </div>

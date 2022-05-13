@@ -4,10 +4,16 @@ import SearchBar from "./SearchBar";
 
 class LocationTable extends React.Component {
   render() {
+    let childStyle = {
+      "margin": "1em",
+      "margin-left": "0px",
+      "margin-right": "0px"
+    }
+
     return (
       <div>
-        <SearchBar />
-        <Table />
+        <SearchBar style={childStyle}/>
+        <Table style={childStyle}/>
       </div>
     );
   }
