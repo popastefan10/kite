@@ -1,5 +1,11 @@
 import React from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  OverlayView,
+  LoadScript,
+  Marker,
+} from "@react-google-maps/api";
+import SpotInfoWindow from "./SpotInfoWindow";
 
 const containerStyle = {
   width: "100%",
@@ -25,9 +31,25 @@ class Map extends React.Component {
     return markers;
   }
 
+  // Custom InfoWindows made with OverlayView wrapper
+  createInfoWindows() {
+    let infoWindows = this.props.spots.map((spot) => (
+      <OverlayView
+        position={{ lat: parseFloat(spot.lat), lng: parseFloat(spot.long) }}
+        mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+        key={spot.id}
+      >
+        <SpotInfoWindow spot={spot}/>
+      </OverlayView>
+    ));
+
+    return infoWindows;
+  }
+
   render() {
     let markers = this.createMarkers();
-    console.log("In render function: ", markers);
+    let infoWindows = this.createInfoWindows();
+    // console.log("In render function: ", infoWindows);
 
     return (
       <div id="map">
@@ -37,7 +59,8 @@ class Map extends React.Component {
             center={center}
             zoom={3}
           >
-            {this.createMarkers()}
+            {markers}
+            {infoWindows}
           </GoogleMap>
         </LoadScript>
       </div>
