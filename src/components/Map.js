@@ -25,12 +25,7 @@ class Map extends React.Component {
           >
             <Marker
               position={center}
-              icon={
-                "./logo192.png"                
-              }
               key={Math.random()}
-              visible={true}
-              zIndex={100}
             ></Marker>
           </GoogleMap>
         </LoadScript>

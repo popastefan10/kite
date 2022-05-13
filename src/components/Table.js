@@ -1,12 +1,8 @@
 import React from "react";
-import spots from "../mockapi_data/spot_get.json";
+// import spots from "../mockapi_data/spot_get.json";
 import "./Table.css";
 
 class Table extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   getTableHeading() {
     return (
       <tr>
@@ -21,7 +17,7 @@ class Table extends React.Component {
   }
 
   getTableRows() {
-    let tableRows = spots.map((spot) => (
+    let tableRows = this.props.spots.map((spot) => (
       <tr key={spot.id}>
         <td>{spot.name}</td>
         <td>{spot.country}</td>
