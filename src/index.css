@@ -1,3 +1,7 @@
+:root {
+  --fast-transition-duration: 0.3s;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,6 +21,7 @@ button {
   padding: 1em;
 
   background-color: #4a90e2;
+  transition: background-color var(--fast-transition-duration) linear;
   color: white;
   text-align: center;
 
@@ -24,4 +29,8 @@ button {
   box-shadow: 0px 1px 3px grey;
 
   cursor: pointer;
+}
+
+button:hover {
+  background-color: #2377da;
 }
