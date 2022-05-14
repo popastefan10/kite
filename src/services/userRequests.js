@@ -3,7 +3,7 @@
 import config from "./config";
 
 // GET /user/:id
-function fetchUserWithId(userId) {
+function fetchUserWithId(userId, onFullfilled) {
   // Get data related to the user with id given as parameter
   const API_ENDPOINT = config.API_ENDPOINT + `/user/${userId}`;
   fetch(API_ENDPOINT)
