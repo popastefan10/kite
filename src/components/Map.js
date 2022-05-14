@@ -67,6 +67,19 @@ class Map extends React.Component {
   // If you click on "Add to favorites" on a spot it will become a favorite spot
   handleAddToFavorites(spotId) {
     return () => {
+      let userFavouriteSpots = JSON.parse(
+        localStorage.getItem("userFavouriteSpots")
+      );
+      userFavouriteSpots.push({
+        createdAt: new Date().toString(),
+        id: (userFavouriteSpots.length + 1).toString(),
+        spot: spotId,
+      });
+      localStorage.setItem(
+        "userFavouriteSpots",
+        JSON.stringify(userFavouriteSpots)
+      );
+
       this.setState((state, props) => {
         let newSpotsData = this.addPropertyForSpotWithId(
           state.spotsData,
@@ -82,6 +95,19 @@ class Map extends React.Component {
   // If you click on "Remove from favorites" on a spot it will become a favorite spot
   handleRemoveFromFavorites(spotId) {
     return () => {
+      let userFavouriteSpots = JSON.parse(
+        localStorage.getItem("userFavouriteSpots")
+      );
+      for (let i = 0; i < userFavouriteSpots.length; i++)
+        if (userFavouriteSpots[i].spot == spotId) {
+          userFavouriteSpots.splice(i, 1);
+          break;
+        }
+      localStorage.setItem(
+        "userFavouriteSpots",
+        JSON.stringify(userFavouriteSpots)
+      );
+
       this.setState((state, props) => {
         let newSpotsData = this.addPropertyForSpotWithId(
           state.spotsData,
@@ -96,7 +122,10 @@ class Map extends React.Component {
 
   isSpotFavourite(favouriteSpots, spotId) {
     // I will check first if isFavourite is in state
-    if (spotId in this.state.spotsData && "isFavourite" in this.state.spotsData[spotId])
+    if (
+      spotId in this.state.spotsData &&
+      "isFavourite" in this.state.spotsData[spotId]
+    )
       return this.state.spotsData[spotId].isFavourite;
 
     // Then I check in props
