@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./Header";
 import Map from "./Map";
 import LocationTable from "./LocationTable";
-import SpotInfoWindow from "./SpotInfoWindow";
 
 class Dashboard extends React.Component {
   constructor(props) {

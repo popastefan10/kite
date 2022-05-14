@@ -2,7 +2,6 @@ import React from "react";
 import {
   GoogleMap,
   OverlayView,
-  LoadScript,
   Marker,
 } from "@react-google-maps/api";
 import SpotInfoWindow from "./SpotInfoWindow";
@@ -39,7 +38,7 @@ class Map extends React.Component {
         mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
         key={spot.id}
       >
-        <SpotInfoWindow spot={spot}/>
+        <SpotInfoWindow spot={spot} />
       </OverlayView>
     ));
 
@@ -53,16 +52,10 @@ class Map extends React.Component {
 
     return (
       <div id="map">
-        <LoadScript googleMapsApiKey={API_KEY}>
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={3}
-          >
-            {markers}
-            {infoWindows}
-          </GoogleMap>
-        </LoadScript>
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={3}>
+          {markers}
+          {infoWindows}
+        </GoogleMap>
       </div>
     );
   }
