@@ -1,9 +1,17 @@
 :root {
-  --siw-head-height: 2rem;
+  --siw-head-height: 1.5rem;
+  --siw-content-padding: 0.5em;
+  --siw-list-ul-padding: 1.5em;
+  --siw-list-li-padding: 0.5em;
+
+  --siw-country-name-opacity: 0.5;
+  --siw-list-li-header-opacity: 0.6;
 }
 
 .spot-info-window {
   border: 2px solid black;
+  padding-left: var(--siw-content-padding);
+  padding-right: var(--siw-content-padding);
 }
 
 /* Head styling ------------------------------- */
@@ -28,18 +36,18 @@
 }
 
 /* Spot name */
-.siw-head h4 {
+.siw-head h3 {
   margin: 0;
   margin-top: auto;
   margin-bottom: auto;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
 }
 
 /* Star icon displayed on favorite spots */
 .siw-favorite-icon {
   margin-top: auto;
   margin-bottom: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   color: #e8b100;
 }
 
@@ -50,4 +58,50 @@
   padding: 0;
 
   color: #b7b8b7;
+}
+
+/* Body styling ------------------------------- */
+
+.siw-body {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
+/* Country name */
+.siw-country-container p {
+  margin: 0;
+  text-align: left;
+  filter: opacity(var(--siw-country-name-opacity));
+}
+
+/* Spot details */
+.siw-info-list {
+  text-align: left;
+}
+
+/* list */
+.siw-info-list ul {
+  margin: 0;
+  margin-top: var(--siw-list-ul-padding);
+  margin-bottom: var(--siw-list-ul-padding);
+  padding: 0;
+  list-style-type: none;
+}
+
+/* list element */
+.siw-info-list li {
+  margin-top: var(--siw-list-li-padding);
+  margin-bottom: var(--siw-list-li-padding);
+}
+
+/* list element header */
+.siw-info-list h5 {
+  filter: opacity(var(--siw-list-li-header-opacity));
+}
+
+/* list element content */
+.siw-info-list h5, p {
+  margin: 0;
+  padding: 0;
 }
