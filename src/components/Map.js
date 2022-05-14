@@ -66,18 +66,22 @@ class Map extends React.Component {
     };
   }
 
+  isSpotFavourite(favouriteSpots, spotId) {
+    if (!favouriteSpots) return false;
+    for (let favouriteSpot of favouriteSpots)
+      if (favouriteSpot.spot == spotId) return true;
+    return false;
+  }
+
   createMarkers() {
     let redMarkerURL = "http://maps.google.com/mapfiles/ms/micons/red-dot.png";
-    let yellowMarkerURL = "http://maps.google.com/mapfiles/ms/micons/yellow-dot.png";
+    let yellowMarkerURL =
+      "http://maps.google.com/mapfiles/ms/micons/yellow-dot.png";
 
     let markers = this.props.spots.map((spot) => {
-      let markerIcon = redMarkerURL;
-      if (this.props.userFavouriteSpots)
-        for (let favouriteSpot of this.props.userFavouriteSpots)
-          if (favouriteSpot.spot == spot.id) {
-            markerIcon = yellowMarkerURL;
-            break;
-          }
+      let markerIcon = this.isSpotFavourite(this.props.userFavouriteSpots, spot.id)
+        ? yellowMarkerURL
+        : redMarkerURL;
 
       return (
         <Marker
