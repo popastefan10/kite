@@ -31,21 +31,9 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const spot = {
-      createdAt: "2022-05-11T23:26:28.822Z",
-      name: "Harvey - Cassin",
-      country: "Paraguay",
-      lat: "-39.9393",
-      long: "154.5062",
-      probability: 59,
-      month: "April",
-      id: "1",
-    };
-
     return (
       <div>
         <Header />
-        <SpotInfoWindow spot={spot} />
         <Map spots={this.state.spots} />
         <LocationTable spots={this.state.spots} />
       </div>
