@@ -4,6 +4,7 @@ import "./LoginForm.css";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       username: "",
       password: "", // TODO: replace with encrypted password
@@ -48,7 +49,10 @@ class LoginForm extends React.Component {
         </div>
 
         <div className={"login-button-container"}>
-          <button className={"login-button"}>
+          <button
+            className={"login-button"}
+            onClick={(e) => this.props.onLogin("dashboard")}
+          >
             <p>Login</p>
           </button>
         </div>

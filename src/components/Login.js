@@ -6,13 +6,13 @@ import "./Login.css";
 class Login extends React.Component {
   render() {
     let titleStyle = {
-      fontSize: "350%"
-    }
+      fontSize: "350%",
+    };
 
     return (
       <div className={"login"}>
-        <Title style={titleStyle}/>
-        <LoginForm />
+        <Title style={titleStyle} />
+        <LoginForm onLogin={this.props.onLogin} />
       </div>
     );
   }
