@@ -1,9 +1,41 @@
-import { faPlus, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./SpotInfoWindow.css";
 
 class SpotInfoWindow extends React.Component {
+  getAddToFavouritesButton() {
+    if (this.props.isFavourite) {
+      return (
+        <button
+          type="button"
+          className={"siw-favorites-button siw-remove-from-favorites-button"}
+        >
+          <FontAwesomeIcon
+            icon={faMinus}
+            size={"xs"}
+            className={"siw-atf-btn-plus-icon"}
+          />
+          <p>REMOVE FROM FAVORITES</p>
+        </button>
+      );
+    }
+
+    return (
+      <button
+        type="button"
+        className={"siw-favorites-button siw-add-to-favorites-button"}
+      >
+        <FontAwesomeIcon
+          icon={faPlus}
+          size={"xs"}
+          className={"siw-atf-btn-plus-icon"}
+        />
+        <p>ADD TO FAVORITES</p>
+      </button>
+    );
+  }
+
   render() {
     let spot = this.props.spot;
     let displayValue = this.props.displayValue;
@@ -16,11 +48,13 @@ class SpotInfoWindow extends React.Component {
         <div className="siw-head">
           <div className={"siw-head-left"}>
             <h3 className="">{spot.name}</h3>
-            <FontAwesomeIcon
-              icon={faStar}
-              size={"xs"}
-              className={"siw-favorite-icon"}
-            />
+            {this.props.isFavourite && (
+              <FontAwesomeIcon
+                icon={faStar}
+                size={"xs"}
+                className={"siw-favorite-icon"}
+              />
+            )}
           </div>
           <div className={"siw-head-right"}>
             <button
@@ -61,17 +95,9 @@ class SpotInfoWindow extends React.Component {
 
         <div className={"siw-foot"}>
           <div>
-            <button
-              type="button"
-              className={"siw-favorites-button siw-add-to-favorites-button"}
-            >
-              <FontAwesomeIcon
-                icon={faPlus}
-                size={"xs"}
-                className={"siw-atf-btn-plus-icon"}
-              />
-              <p>ADD TO FAVORITES</p>
-            </button>
+            {
+              this.getAddToFavouritesButton()
+            }
           </div>
         </div>
       </div>

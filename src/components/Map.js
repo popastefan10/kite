@@ -105,6 +105,8 @@ class Map extends React.Component {
         this.state.spotsData[spot.id].visibleInfoWindow
       )
         displayValue = "block";
+      
+        let isFavourite = this.isSpotFavourite(this.props.userFavouriteSpots, spot.id);
 
       return (
         <OverlayView
@@ -114,6 +116,7 @@ class Map extends React.Component {
         >
           <SpotInfoWindow
             spot={spot}
+            isFavourite={isFavourite}
             displayValue={displayValue}
             onInfoWindowClose={this.handleInfoWindowClose(spot.id)}
           />

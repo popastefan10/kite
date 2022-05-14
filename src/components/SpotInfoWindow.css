@@ -4,6 +4,7 @@
   --siw-list-ul-padding: 1.5em;
   --siw-list-li-padding: 0.5em;
   --siw-atf-btn-plus-icon-padding: 0.5em;
+  --siw-add-to-favorites-button-padding: 0.5em;
 
   --siw-country-name-opacity: 0.5;
   --siw-list-li-header-opacity: 0.6;
@@ -114,11 +115,29 @@
 
 /* Favorites button */
 .siw-favorites-button {
+  height: 2em;
   width: 100%;
+  padding: 0;
+  padding-left: var(--siw-add-to-favorites-button-padding);
+  padding-right: var(--siw-add-to-favorites-button-padding);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
   box-shadow: none;
 
   filter: brightness(100%);
   transition: filter linear var(--fast-transition-duration);
+}
+
+.siw-favorites-button p {
+  padding: 0;
+  margin: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  font-size:x-small;
 }
 
 /* Favorites button on hover */
@@ -128,22 +147,12 @@
 
 /* Styling for the Favorites button when it's displaying "Add to favorites" */
 button.siw-add-to-favorites-button {
-  height: 2em;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   background-color: #e8b100;
 }
 
-/* Favorites button text */
-button.siw-add-to-favorites-button p {
-  padding: 0;
-  margin: 0;
-  margin-top: auto;
-  margin-bottom: auto;
-
-  font-size:x-small;
+/* Styling for the Favorites button when it's displaying "Remove from favorites" */
+button.siw-remove-from-favorites-button {
+  background-color: #ff3b30;
 }
 
 /* Favorites button icon */
