@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
+import fetchFavourites from "./services/favouritesRequests";
 import postLogin from "./services/loginRequests";
 import fetchUserWithId from "./services/userRequests";
 
@@ -15,6 +16,9 @@ class App extends React.Component {
       displayedPage: displayedPage,
       userId: localStorage.getItem("userId"),
       userData: JSON.parse(localStorage.getItem("userData")),
+      userFavouriteSpots: JSON.parse(
+        localStorage.getItem("userFavouriteSpots")
+      ),
     };
 
     this.handleDisplayedPageChange = this.handleDisplayedPageChange.bind(this);
@@ -36,13 +40,20 @@ class App extends React.Component {
     fetchUserWithId(userInfo.userId, (data) => {
       localStorage.setItem("userData", JSON.stringify(data));
       this.setState({ userData: data });
+
+      fetchFavourites((data) => {
+        localStorage.setItem("userFavouriteSpots", JSON.stringify(data));
+        this.setState({ userFavouriteSpots: data });
+      });
     });
   }
 
   // Removes user data from state and local storage
   handleUserLogout() {
     localStorage.setItem("userId", null);
-    this.setState({ userId: null, userData: null });
+    localStorage.setItem("userData", null);
+    localStorage.setItem("userFavouriteSpots", null);
+    this.setState({ userId: null, userData: null, userFavouriteSpots: null });
   }
 
   // Conditional rendering
