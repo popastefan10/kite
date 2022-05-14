@@ -6,7 +6,7 @@ class Title extends React.Component {
     let className = this.props.className + " title";
 
     return (
-      <div className={className}>
+      <div className={className} style={this.props.style}>
         <p>Kite</p>
       </div>
     );

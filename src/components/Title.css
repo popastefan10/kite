@@ -3,6 +3,11 @@
   --title-padding: 0;
 }
 
+@font-face {
+  font-family: Calligraffiti;
+  src: url(../fonts/Calligraffiti.ttf);
+}
+
 .title {
   position: relative;
 }
@@ -12,4 +17,5 @@
   padding: var(--title-padding);
 
   text-align: center;
+  font-family: Calligraffiti;
 }

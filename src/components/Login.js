@@ -1,12 +1,17 @@
 import React from "react";
 import Title from "./Title";
 import LoginForm from "./LoginForm";
+import "./Login.css";
 
 class Login extends React.Component {
   render() {
+    let titleStyle = {
+      fontSize: "350%"
+    }
+
     return (
-      <div>
-        <Title />
+      <div className={"login"}>
+        <Title style={titleStyle}/>
         <LoginForm />
       </div>
     );

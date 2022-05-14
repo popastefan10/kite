@@ -7,10 +7,14 @@ import "./Header.css";
 
 class Header extends React.Component {
   render() {
+    let titleStyle = {
+      fontSize: "200%"
+    }
+
     return (
       <header>
         <div className={"header-left"}>
-          <Title className={"header-button"}/>
+          <Title className={"header-button"} style={titleStyle}/>
         </div>
         <div className={"header-right"}>
           <AddSpotButton className={"header-button"}/>
