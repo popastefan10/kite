@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <Header onLogout={this.props.onLogout} />
+        <Header userData={this.props.userData} onLogout={this.props.onLogout} />
         <Map spots={this.state.spots} />
         <LocationTable spots={this.state.spots} />
       </div>

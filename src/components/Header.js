@@ -7,10 +7,17 @@ import Avatar from "./Avatar";
 import "./Header.css";
 
 class Header extends React.Component {
+  getUserAvatarURL() {
+    if (!this.props.userData || !this.props.userData.avatar)
+      return "./images/guest_profile_picture.png";
+    return this.props.userData.avatar;
+  }
+
   render() {
     let titleStyle = {
       fontSize: "200%",
     };
+    let userAvatarURL = this.getUserAvatarURL();
 
     return (
       <header>
@@ -23,7 +30,7 @@ class Header extends React.Component {
             className={"header-section"}
             onLogout={this.props.onLogout}
           />
-          <Avatar className={"header-section"} />
+          <Avatar className={"header-section"} userAvatarURL={userAvatarURL} />
         </div>
       </header>
     );

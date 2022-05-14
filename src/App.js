@@ -58,6 +58,7 @@ class App extends React.Component {
       );
     return (
       <Dashboard
+        userData={this.state.userData}
         onLogout={() => {
           this.handleUserLogout();
           this.handleDisplayedPageChange("login");

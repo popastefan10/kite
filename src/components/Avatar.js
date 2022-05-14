@@ -6,7 +6,7 @@ class Avatar extends React.Component {
     return (
       <div className={this.props.className + " avatar-container"}>
         <figure>
-          <img src={"./images/guest_profile_picture.png"} alt="Avatar" className={"avatar-img"} />
+          <img src={this.props.userAvatarURL} alt="Avatar" className={"avatar-img"} />
         </figure>
       </div>
     );
