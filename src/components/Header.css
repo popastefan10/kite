@@ -1,6 +1,7 @@
 :root {
   --header-height: 60px;
-  --header-button-width: 100px
+  --header-section-width: 100px;
+  --header-section-padding: 0.5em;
 }
 
 header {
@@ -21,10 +22,13 @@ header {
   float: right;
 }
 
-.header-button {
-  width: var(--header-button-width);
+.header-section {
+  width: var(--header-section-width);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
+
+  padding-left: var(--header-section-padding);
+  padding-right: var(--header-section-padding);
 }
