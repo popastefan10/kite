@@ -9,6 +9,10 @@
   --siw-list-li-header-opacity: 0.6;
 }
 
+.spot-info-window {
+  box-shadow: 0px 3px 10px 1px grey;
+}
+
 .siw-head, .siw-body {
   padding-left: var(--siw-content-padding);
   padding-right: var(--siw-content-padding);
