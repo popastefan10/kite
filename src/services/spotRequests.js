@@ -1,7 +1,7 @@
 // https://www.pluralsight.com/guides/fetching-data-updating-state-react-class
 
 // Spot request: GET /spot
-function fetchUsers(onFullfilled) {
+function fetchSpots(onFullfilled) {
   // Get spots list from the API
   const API_ENDPOINT = "https://627d27b8e5ac2c452afe3162.mockapi.io/spot";
   fetch(API_ENDPOINT)
@@ -18,4 +18,4 @@ function fetchUsers(onFullfilled) {
     .catch((err) => console.log("Error at fetching data: ", err));
 }
 
-export default fetchUsers;
+export default fetchSpots;

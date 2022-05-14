@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Map from "./Map";
 import LocationTable from "./LocationTable";
-import fetchUsers from "../services/userRequests";
+import fetchSpots from "../services/spotRequests";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    fetchUsers((data) => this.setState({ spots: data }));
+    fetchSpots((data) => this.setState({ spots: data }));
   }
 
   render() {
