@@ -3,13 +3,13 @@
   --siw-content-padding: 0.5em;
   --siw-list-ul-padding: 1.5em;
   --siw-list-li-padding: 0.5em;
+  --siw-atf-btn-plus-icon-padding: 0.5em;
 
   --siw-country-name-opacity: 0.5;
   --siw-list-li-header-opacity: 0.6;
 }
 
-.spot-info-window {
-  border: 2px solid black;
+.siw-head, .siw-body {
   padding-left: var(--siw-content-padding);
   padding-right: var(--siw-content-padding);
 }
@@ -104,4 +104,40 @@
 .siw-info-list h5, p {
   margin: 0;
   padding: 0;
+}
+
+/* Footer styling ----------------------------- */
+
+.siw-favorites-button button {
+  width: 100%;
+  box-shadow: none;
+}
+
+/* Styling for the "Add to favorites" button */
+button.siw-add-to-favorites-button {
+  height: 2em;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #e8b100;
+}
+
+/* Favorites button text */
+button.siw-add-to-favorites-button p {
+  padding: 0;
+  margin: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  font-size:x-small;
+}
+
+/* Favorites button icon */
+.siw-atf-btn-plus-icon {
+  margin: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: var(--siw-atf-btn-plus-icon-padding);
+  padding-right: var(--siw-atf-btn-plus-icon-padding);
 }

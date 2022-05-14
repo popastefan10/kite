@@ -50,11 +50,13 @@ class SpotInfoWindow extends React.Component {
               </li>
             </ul>
           </div>
+        </div>
 
+        <div className={"siw-foot"}>
           <div className={"siw-favorites-button"}>
-            <button type="button">
-              <FontAwesomeIcon icon={faPlus} size={"xs"} />
-              <span>Add to favorites</span>
+            <button type="button" className={"siw-add-to-favorites-button"}>
+              <FontAwesomeIcon icon={faPlus} size={"xs"} className={"siw-atf-btn-plus-icon"}/>
+              <p>ADD TO FAVORITES</p>
             </button>
           </div>
         </div>
