@@ -1,13 +1,12 @@
-// https://www.pluralsight.com/guides/fetching-data-updating-state-react-class
-// Requests for the "spot" API endpoint //////////
+// Requests for the "login" API endpoint /////////
 
 import config from "./config";
 
-// GET /spot
-function fetchSpots(onFullfilled) {
-  // Get spots list from the API
-  const API_ENDPOINT = config.API_ENDPOINT + "/spot";
-  fetch(API_ENDPOINT)
+// POST /login
+function postLogin(onFullfilled) {
+  // Simulate login
+  const API_ENDPOINT = config.API_ENDPOINT + "/login";
+  fetch(API_ENDPOINT, { method: "POST" })
     .then((response) => {
       if (!response.ok) {
         throw new Error(
@@ -21,4 +20,4 @@ function fetchSpots(onFullfilled) {
     .catch((err) => console.log("Error at fetching data: ", err));
 }
 
-export default fetchSpots;
+export default postLogin;
