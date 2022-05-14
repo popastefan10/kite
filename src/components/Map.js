@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  GoogleMap,
-  OverlayView,
-  Marker,
-} from "@react-google-maps/api";
+import { GoogleMap, OverlayView, Marker } from "@react-google-maps/api";
 import SpotInfoWindow from "./SpotInfoWindow";
 
 const containerStyle = {
@@ -19,6 +15,14 @@ const center = {
 const API_KEY = "AIzaSyCFhIVkwY_rRptuPIZy7wjC_ZGw6MCTLTo";
 
 class Map extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      spotsData: {},
+    };
+  }
+
   createMarkers() {
     let markers = this.props.spots.map((spot) => (
       <Marker
@@ -32,15 +36,24 @@ class Map extends React.Component {
 
   // Custom InfoWindows made with OverlayView wrapper
   createInfoWindows() {
-    let infoWindows = this.props.spots.map((spot) => (
-      <OverlayView
-        position={{ lat: parseFloat(spot.lat), lng: parseFloat(spot.long) }}
-        mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-        key={spot.id}
-      >
-        <SpotInfoWindow spot={spot} />
-      </OverlayView>
-    ));
+    let infoWindows = this.props.spots.map((spot) => {
+      let displayValue = "none";
+      if (
+        spot.id in this.state.spotsData &&
+        this.state.spotsData[spot.id].visibleInfoWindow
+      )
+        displayValue = "block";
+
+      return (
+        <OverlayView
+          position={{ lat: parseFloat(spot.lat), lng: parseFloat(spot.long) }}
+          mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+          key={spot.id}
+        >
+          <SpotInfoWindow spot={spot} displayValue={displayValue} />
+        </OverlayView>
+      );
+    });
 
     return infoWindows;
   }
@@ -48,7 +61,7 @@ class Map extends React.Component {
   render() {
     let markers = this.createMarkers();
     let infoWindows = this.createInfoWindows();
-    // console.log("In render function: ", infoWindows);
+    // console.log("In render function: ", this.state);
 
     return (
       <div id="map">

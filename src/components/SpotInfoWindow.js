@@ -6,9 +6,13 @@ import "./SpotInfoWindow.css";
 class SpotInfoWindow extends React.Component {
   render() {
     let spot = this.props.spot;
+    let displayValue = this.props.displayValue;
 
     return (
-      <div className={"spot-info-window"} style={{ backgroundColor: "white" }}>
+      <div
+        className={"spot-info-window"}
+        style={{ backgroundColor: "white", display: displayValue }}
+      >
         <div className="siw-head">
           <div className={"siw-head-left"}>
             <h3 className="">{spot.name}</h3>
@@ -54,8 +58,15 @@ class SpotInfoWindow extends React.Component {
 
         <div className={"siw-foot"}>
           <div>
-            <button type="button" className={"siw-favorites-button siw-add-to-favorites-button"}>
-              <FontAwesomeIcon icon={faPlus} size={"xs"} className={"siw-atf-btn-plus-icon"}/>
+            <button
+              type="button"
+              className={"siw-favorites-button siw-add-to-favorites-button"}
+            >
+              <FontAwesomeIcon
+                icon={faPlus}
+                size={"xs"}
+                className={"siw-atf-btn-plus-icon"}
+              />
               <p>ADD TO FAVORITES</p>
             </button>
           </div>
