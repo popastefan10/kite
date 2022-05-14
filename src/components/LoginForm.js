@@ -1,17 +1,18 @@
 import React from "react";
+import "./LoginForm.css";
 
 class LoginForm extends React.Component {
   render() {
     return (
-      <div>
-        <div className={"user-input"}>
-          <div className={"username-input"}>
+      <div className={"login-form-container"}>
+        <div className={"user-input-container"}>
+          <div className={"user-input username-input"}>
             <p>Username</p>
-            <input type={"text"} placeholder={"Type in your username..."} />
+            <input type={"text"} />
           </div>
-          <div className={"password-input"}>
+          <div className={"user-input password-input"}>
             <p>Password</p>
-            <input type={"password"} placeholder={"Type in your password..."} />
+            <input type={"password"} />
           </div>
         </div>
 

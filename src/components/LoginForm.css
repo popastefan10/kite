@@ -1,0 +1,41 @@
+:root {
+  --user-input-container-width: 280px;
+  --user-input-margin: 1em; /* margin between user inputs */
+  --user-input-title-margin: 0.3em; /* margin between title and actual input */
+}
+
+/* Contains user inputs and login button */
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+/* Contains all types of user input */
+.user-input-container {
+  width: var(--user-input-container-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Used for any type of user input */
+.user-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--user-input-margin);
+  margin-bottom: var(--user-input-margin);
+}
+
+/* Input titles */
+.user-input p {
+  text-align: left;
+  /* margin-top: var(--user-input-title-margin); */
+  margin-bottom: var(--user-input-title-margin);
+}
+
+.user-input input {
+  line-height: 1.5em;
+  border: 2px solid #8e8e8e;
+  border-radius: 0;
+}
