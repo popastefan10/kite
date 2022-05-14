@@ -23,9 +23,38 @@ class Map extends React.Component {
     };
   }
 
+  handleMarkerClick(spotId) {
+    return () => {
+      this.setState((state, props) => {
+        if (!(spotId in state.spotsData))
+          Object.assign(state.spotsData, {
+            [spotId]: { visibleInfoWindow: true },
+          });
+        else state.spotsData[spotId].visibleInfoWindow = true;
+
+        return { spotsData: state.spotsData };
+      });
+    };
+  }
+
+  handleInfoWindowClose(spotId) {
+    return () => {
+      this.setState((state, props) => {
+        if (!(spotId in state.spotsData))
+          Object.assign(state.spotsData, {
+            [spotId]: { visibleInfoWindow: false },
+          });
+        else state.spotsData[spotId].visibleInfoWindow = false;
+
+        return { spotsData: state.spotsData };
+      });
+    };
+  }
+
   createMarkers() {
     let markers = this.props.spots.map((spot) => (
       <Marker
+        onClick={this.handleMarkerClick(spot.id)}
         position={{ lat: parseFloat(spot.lat), lng: parseFloat(spot.long) }}
         key={spot.id}
       />
@@ -50,7 +79,11 @@ class Map extends React.Component {
           mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
           key={spot.id}
         >
-          <SpotInfoWindow spot={spot} displayValue={displayValue} />
+          <SpotInfoWindow
+            spot={spot}
+            displayValue={displayValue}
+            onInfoWindowClose={this.handleInfoWindowClose(spot.id)}
+          />
         </OverlayView>
       );
     });

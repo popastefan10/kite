@@ -23,7 +23,10 @@ class SpotInfoWindow extends React.Component {
             />
           </div>
           <div className={"siw-head-right"}>
-            <button className={"transparent-button siw-close-button"}>
+            <button
+              className={"transparent-button siw-close-button"}
+              onClick={this.props.onInfoWindowClose}
+            >
               <FontAwesomeIcon icon={faXmark} size={"sm"} />
             </button>
           </div>
