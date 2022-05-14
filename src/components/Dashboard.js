@@ -34,6 +34,9 @@ class Dashboard extends React.Component {
     return (
       <div>
         <Header />
+        <button onClick={(e) => this.props.onLogout()}>
+          <p>Logout</p>
+        </button>
         <Map spots={this.state.spots} />
         <LocationTable spots={this.state.spots} />
       </div>

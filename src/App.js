@@ -25,15 +25,11 @@ class App extends React.Component {
   // Conditional rendering
   getDisplayedPage() {
     if (this.state.displayedPage == "login")
-      return <Login onLogin={this.handleDisplayedPageChange} />;
-    return <Dashboard />;
+      return <Login onLogin={() => this.handleDisplayedPageChange("dashboard")} />;
+    return <Dashboard onLogout={() => this.handleDisplayedPageChange("login")}/>;
   }
 
   render() {
-    if (this.state.displayedPage == "dashboard") {
-      setInterval(() => this.handleDisplayedPageChange("login"), 5000);
-    }
-
     return <div className="App">{this.getDisplayedPage()}</div>;
   }
 }

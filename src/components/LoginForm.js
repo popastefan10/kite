@@ -51,7 +51,7 @@ class LoginForm extends React.Component {
         <div className={"login-button-container"}>
           <button
             className={"login-button"}
-            onClick={(e) => this.props.onLogin("dashboard")}
+            onClick={(e) => this.props.onLogin()}
           >
             <p>Login</p>
           </button>
