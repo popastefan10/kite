@@ -10,6 +10,7 @@ class SpotInfoWindow extends React.Component {
         <button
           type="button"
           className={"siw-favorites-button siw-remove-from-favorites-button"}
+          onClick={this.props.onFavoritesButtonClick}
         >
           <FontAwesomeIcon
             icon={faMinus}
@@ -25,6 +26,7 @@ class SpotInfoWindow extends React.Component {
       <button
         type="button"
         className={"siw-favorites-button siw-add-to-favorites-button"}
+        onClick={this.props.onFavoritesButtonClick}
       >
         <FontAwesomeIcon
           icon={faPlus}

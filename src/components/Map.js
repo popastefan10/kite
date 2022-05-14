@@ -12,8 +12,6 @@ const center = {
   lng: 26.112,
 };
 
-const API_KEY = "AIzaSyCFhIVkwY_rRptuPIZy7wjC_ZGw6MCTLTo";
-
 class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -66,7 +64,42 @@ class Map extends React.Component {
     };
   }
 
+  // If you click on "Add to favorites" on a spot it will become a favorite spot
+  handleAddToFavorites(spotId) {
+    return () => {
+      this.setState((state, props) => {
+        let newSpotsData = this.addPropertyForSpotWithId(
+          state.spotsData,
+          spotId,
+          "isFavourite",
+          true
+        );
+        return { spotsData: newSpotsData };
+      });
+    };
+  }
+
+  // If you click on "Remove from favorites" on a spot it will become a favorite spot
+  handleRemoveFromFavorites(spotId) {
+    return () => {
+      this.setState((state, props) => {
+        let newSpotsData = this.addPropertyForSpotWithId(
+          state.spotsData,
+          spotId,
+          "isFavourite",
+          false
+        );
+        return { spotsData: newSpotsData };
+      });
+    };
+  }
+
   isSpotFavourite(favouriteSpots, spotId) {
+    // I will check first if isFavourite is in state
+    if (spotId in this.state.spotsData && "isFavourite" in this.state.spotsData[spotId])
+      return this.state.spotsData[spotId].isFavourite;
+
+    // Then I check in props
     if (!favouriteSpots) return false;
     for (let favouriteSpot of favouriteSpots)
       if (favouriteSpot.spot == spotId) return true;
@@ -79,7 +112,10 @@ class Map extends React.Component {
       "http://maps.google.com/mapfiles/ms/micons/yellow-dot.png";
 
     let markers = this.props.spots.map((spot) => {
-      let markerIcon = this.isSpotFavourite(this.props.userFavouriteSpots, spot.id)
+      let markerIcon = this.isSpotFavourite(
+        this.props.userFavouriteSpots,
+        spot.id
+      )
         ? yellowMarkerURL
         : redMarkerURL;
 
@@ -105,8 +141,15 @@ class Map extends React.Component {
         this.state.spotsData[spot.id].visibleInfoWindow
       )
         displayValue = "block";
-      
-        let isFavourite = this.isSpotFavourite(this.props.userFavouriteSpots, spot.id);
+
+      let isFavourite = this.isSpotFavourite(
+        this.props.userFavouriteSpots,
+        spot.id
+      );
+
+      let onFavoritesButtonClick = isFavourite
+        ? this.handleRemoveFromFavorites(spot.id)
+        : this.handleAddToFavorites(spot.id);
 
       return (
         <OverlayView
@@ -119,6 +162,7 @@ class Map extends React.Component {
             isFavourite={isFavourite}
             displayValue={displayValue}
             onInfoWindowClose={this.handleInfoWindowClose(spot.id)}
+            onFavoritesButtonClick={onFavoritesButtonClick}
           />
         </OverlayView>
       );
