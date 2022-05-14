@@ -36,6 +36,7 @@ class Map extends React.Component {
     return spotsData;
   }
 
+  // When a Marker is clicked it opens its corresponding SpotInfoWindow
   handleMarkerClick(spotId) {
     return () => {
       this.setState((state, props) => {
@@ -50,6 +51,7 @@ class Map extends React.Component {
     };
   }
 
+  // SpotInfoWindow is closed when the x button is clicked
   handleInfoWindowClose(spotId) {
     return () => {
       this.setState((state, props) => {
@@ -65,13 +67,27 @@ class Map extends React.Component {
   }
 
   createMarkers() {
-    let markers = this.props.spots.map((spot) => (
-      <Marker
-        onClick={this.handleMarkerClick(spot.id)}
-        position={{ lat: parseFloat(spot.lat), lng: parseFloat(spot.long) }}
-        key={spot.id}
-      />
-    ));
+    let redMarkerURL = "http://maps.google.com/mapfiles/ms/micons/red-dot.png";
+    let yellowMarkerURL = "http://maps.google.com/mapfiles/ms/micons/yellow-dot.png";
+
+    let markers = this.props.spots.map((spot) => {
+      let markerIcon = redMarkerURL;
+      if (this.props.userFavouriteSpots)
+        for (let favouriteSpot of this.props.userFavouriteSpots)
+          if (favouriteSpot.spot == spot.id) {
+            markerIcon = yellowMarkerURL;
+            break;
+          }
+
+      return (
+        <Marker
+          onClick={this.handleMarkerClick(spot.id)}
+          icon={markerIcon}
+          position={{ lat: parseFloat(spot.lat), lng: parseFloat(spot.long) }}
+          key={spot.id}
+        />
+      );
+    });
 
     return markers;
   }

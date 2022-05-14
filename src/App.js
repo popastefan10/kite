@@ -70,6 +70,7 @@ class App extends React.Component {
     return (
       <Dashboard
         userData={this.state.userData}
+        userFavouriteSpots={this.state.userFavouriteSpots}
         onLogout={() => {
           this.handleUserLogout();
           this.handleDisplayedPageChange("login");
