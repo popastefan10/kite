@@ -23,16 +23,29 @@ class Map extends React.Component {
     };
   }
 
+  // Adds in spotsData Object an object with key spotId and value
+  // an Object with key propertyName and value propertyValue
+  // spotsData = {..., spotId: {..., propertyName: propertyValue}}
+  addPropertyForSpotWithId(spotsData, spotId, propertyName, propertyValue) {
+    if (!(spotId in spotsData))
+      Object.assign(spotsData, {
+        [spotId]: { [propertyName]: propertyValue },
+      });
+    else spotsData[spotId][propertyName] = propertyValue;
+
+    return spotsData;
+  }
+
   handleMarkerClick(spotId) {
     return () => {
       this.setState((state, props) => {
-        if (!(spotId in state.spotsData))
-          Object.assign(state.spotsData, {
-            [spotId]: { visibleInfoWindow: true },
-          });
-        else state.spotsData[spotId].visibleInfoWindow = true;
-
-        return { spotsData: state.spotsData };
+        let newSpotsData = this.addPropertyForSpotWithId(
+          state.spotsData,
+          spotId,
+          "visibleInfoWindow",
+          true
+        );
+        return { spotsData: newSpotsData };
       });
     };
   }
@@ -40,13 +53,13 @@ class Map extends React.Component {
   handleInfoWindowClose(spotId) {
     return () => {
       this.setState((state, props) => {
-        if (!(spotId in state.spotsData))
-          Object.assign(state.spotsData, {
-            [spotId]: { visibleInfoWindow: false },
-          });
-        else state.spotsData[spotId].visibleInfoWindow = false;
-
-        return { spotsData: state.spotsData };
+        let newSpotsData = this.addPropertyForSpotWithId(
+          state.spotsData,
+          spotId,
+          "visibleInfoWindow",
+          false
+        );
+        return { spotsData: newSpotsData };
       });
     };
   }
