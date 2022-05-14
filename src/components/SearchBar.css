@@ -21,6 +21,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: #e4e7e9;
 }
 
 /* Text input */
@@ -32,7 +33,7 @@
   
   border: none;
   border-radius: 0%;
-  background-color: #e4e7e9;
+  background-color: transparent;
 }
 
 /* Search button */
@@ -42,11 +43,6 @@
   padding: 0;
 
   box-shadow: none;
-  background-color: #e4e7e9;
-}
-
-.search-bar button:hover {
-  background-color: #cdd2d6;
 }
 
 /* Search icon */

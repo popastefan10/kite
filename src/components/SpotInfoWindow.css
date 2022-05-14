@@ -1,0 +1,53 @@
+:root {
+  --siw-head-height: 2rem;
+}
+
+.spot-info-window {
+  border: 2px solid black;
+}
+
+/* Head styling ------------------------------- */
+
+.spot-info-window .siw-head {
+  display: flex;
+  flex-direction: row;
+  height: var(--siw-head-height);
+}
+
+/* Class for moving elements to the left of the head */
+.siw-head .siw-head-left {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Class for moving elements to the right of the head */
+.siw-head .siw-head-right {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+}
+
+/* Spot name */
+.siw-head h4 {
+  margin: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+/* Star icon displayed on favorite spots */
+.siw-favorite-icon {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #e8b100;
+}
+
+/* Close button */
+.siw-close-button {
+  height: var(--siw-head-height);
+  width: var(--siw-head-height);
+  padding: 0;
+
+  color: #b7b8b7;
+}

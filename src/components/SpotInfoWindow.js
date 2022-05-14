@@ -1,6 +1,7 @@
 import { faPlus, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import "./SpotInfoWindow.css";
 
 class SpotInfoWindow extends React.Component {
   render() {
@@ -9,10 +10,23 @@ class SpotInfoWindow extends React.Component {
     return (
       <div className={"spot-info-window"} style={{ backgroundColor: "white" }}>
         <div className="siw-head">
-          <h3>{spot.name}</h3>
+          <div className={"siw-head-left"}>
+            <h4 className="">{spot.name}</h4>
+            <FontAwesomeIcon
+              icon={faStar}
+              size={"xs"}
+              className={"siw-favorite-icon"}
+            />
+          </div>
+          <div className={"siw-head-right"}>
+            <button className={"transparent-button siw-close-button"}>
+              <FontAwesomeIcon icon={faXmark} size={"sm"} />
+            </button>
+          </div>
+        </div>
+
+        <div className={"siw-country-container"}>
           <p>{spot.country}</p>
-          <FontAwesomeIcon icon={faStar} size={"xs"} />
-          <FontAwesomeIcon icon={faXmark} size={"xs"} />
         </div>
 
         <div className="siw-info-list">
@@ -38,7 +52,7 @@ class SpotInfoWindow extends React.Component {
 
         <div className={"siw-favorites-button"}>
           <button type="button">
-            <FontAwesomeIcon icon={faPlus} size={"xs"}/>
+            <FontAwesomeIcon icon={faPlus} size={"xs"} />
             <span>Add to favorites</span>
           </button>
         </div>

@@ -34,3 +34,19 @@ button {
 button:hover {
   background-color: #2377da;
 }
+
+/* 
+  A class for transparent buttons: inherit background-color from the outer container 
+  and have transition on color property (filter actually) instead of background-color
+*/
+button.transparent-button {
+  background-color: transparent;
+  filter: brightness(100%);
+  transition: filter linear var(--fast-transition-duration);
+
+  box-shadow: none;
+}
+
+button.transparent-button:hover {
+  filter: brightness(75%);
+}

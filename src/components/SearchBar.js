@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
             placeholder={"Search..."}
             name={"search"}
           ></input>
-          <button type="submit">
+          <button type="submit" className={"transparent-button"}>
             <FontAwesomeIcon
               icon={faSearch}
               className={"search-bar-icon"}
