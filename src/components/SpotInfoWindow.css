@@ -112,12 +112,21 @@
 
 /* Footer styling ----------------------------- */
 
-.siw-favorites-button button {
+/* Favorites button */
+.siw-favorites-button {
   width: 100%;
   box-shadow: none;
+
+  filter: brightness(100%);
+  transition: filter linear var(--fast-transition-duration);
 }
 
-/* Styling for the "Add to favorites" button */
+/* Favorites button on hover */
+.siw-favorites-button:hover {
+  filter: brightness(95%);
+}
+
+/* Styling for the Favorites button when it's displaying "Add to favorites" */
 button.siw-add-to-favorites-button {
   height: 2em;
   padding: 0;
