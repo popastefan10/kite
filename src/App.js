@@ -49,7 +49,12 @@ class App extends React.Component {
         />
       );
     return (
-      <Dashboard onLogout={() => this.handleDisplayedPageChange("login")} />
+      <Dashboard
+        onLogout={() => {
+          this.handleUserLogout();
+          this.handleDisplayedPageChange("login");
+        }}
+      />
     );
   }
 
