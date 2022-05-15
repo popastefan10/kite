@@ -15,12 +15,15 @@ class Table extends React.Component {
   handleHeaderButtonClick(columnName) {
     return () => {
       this.setState((state, props) => {
-        console.log(`Click on ${columnName}: old state = `, state);
         if (state.columnSorted == columnName)
           return { sortAscending: !state.sortAscending };
         return { columnSorted: columnName, sortAscending: true };
       });
     };
+  }
+
+  filterSpotsByName(spots, includeStr) {
+    return spots.filter((spot) => spot.name.toLowerCase().includes(includeStr.toLowerCase()));
   }
 
   sortSpotsByColumn(spots, columnName, sortAscending) {
@@ -70,7 +73,7 @@ class Table extends React.Component {
               : "descending";
 
           return (
-            <th>
+            <th key={columnName}>
               <SortableButton
                 name={columnName}
                 onClick={this.handleHeaderButtonClick(columnName)}
@@ -85,6 +88,10 @@ class Table extends React.Component {
 
   getTableRows() {
     let spots = this.props.spots;
+
+    // Filter spots by name
+    spots = this.filterSpotsByName(spots, this.props.nameSearched);
+
     // Check if table is sorted by any column
     if (this.state.columnSorted)
       spots = this.sortSpotsByColumn(

@@ -10,12 +10,15 @@ class SearchBar extends React.Component {
         <div className={"search-bar-title"}>
           <h2>Locations</h2>
         </div>
+
         <div className="search-bar">
           <input
             type={"text"}
             placeholder={"Search..."}
             name={"search"}
+            onChange={this.props.onChange}
           ></input>
+
           <button type="submit" className={"transparent-button"}>
             <FontAwesomeIcon
               icon={faSearch}
