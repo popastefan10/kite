@@ -51,44 +51,34 @@ class Table extends React.Component {
   }
 
   getTableHeading() {
+    let tableColumnNames = [
+      "Name",
+      "Country",
+      "Latitude",
+      "Longitude",
+      "Wind Prob.",
+      "When to go",
+    ];
+
     return (
       <tr>
-        <th>
-          <SortableButton
-            name={"Name"}
-            onClick={this.handleHeaderButtonClick("Name")}
-          />
-        </th>
-        <th>
-          <SortableButton
-            name={"Country"}
-            onClick={this.handleHeaderButtonClick("Country")}
-          />
-        </th>
-        <th>
-          <SortableButton
-            name={"Latitude"}
-            onClick={this.handleHeaderButtonClick("Latitude")}
-          />
-        </th>
-        <th>
-          <SortableButton
-            name={"Longitude"}
-            onClick={this.handleHeaderButtonClick("Longitude")}
-          />
-        </th>
-        <th>
-          <SortableButton
-            name={"Wind Prob."}
-            onClick={this.handleHeaderButtonClick("Wind Prob.")}
-          />
-        </th>
-        <th>
-          <SortableButton
-            name={"When to go"}
-            onClick={this.handleHeaderButtonClick("When to go")}
-          />
-        </th>
+        {tableColumnNames.map((columnName) => {
+          let columnSortState = "default";
+          if (this.state.columnSorted == columnName)
+            columnSortState = this.state.sortAscending
+              ? "ascending"
+              : "descending";
+
+          return (
+            <th>
+              <SortableButton
+                name={columnName}
+                onClick={this.handleHeaderButtonClick(columnName)}
+                sortState={columnSortState}
+              />
+            </th>
+          );
+        })}
       </tr>
     );
   }

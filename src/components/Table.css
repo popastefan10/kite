@@ -2,7 +2,7 @@
   --table-rows-odd-color: white;
   --table-rows-even-color: #f3f3f3;
 
-  --table-cells-padding: 0em;
+  --table-cells-padding: 0.5em;
 }
 
 .table-container table {
@@ -26,7 +26,7 @@
 }
 
 /* Table cells */
-.table-container table td, .table-container table th {
+.table-container table td {
   padding: var(--table-cells-padding);
   text-align: left;
 }
