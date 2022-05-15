@@ -1,0 +1,30 @@
+.sortable-button {
+  width: 100%;
+  padding: 0.5em;
+  box-shadow: none;
+  border: none;
+
+  background-color: transparent;
+  color: black;
+
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.sortable-button:hover {
+  background-color: transparent;
+}
+
+.sortable-button h3 {
+  margin: 0;
+  text-align: left;
+}
+
+.header-button-sort-icon {
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  padding-right: 0.5em;
+}
