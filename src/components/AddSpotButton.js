@@ -1,6 +1,7 @@
 import React from "react";
 import "./AddSpotButton.css";
 
+// "Add Spot" button displayed on Dashboard
 class AddSpotButton extends React.Component {
   render() {
     let className = this.props.className;

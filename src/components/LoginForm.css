@@ -1,12 +1,12 @@
 :root {
-  --user-input-container-width: 280px;
+  --user-input-container-width: 280px; /* constant width for every data input */
   --login-button-width: 120px;
 
   --user-input-margin: 1em; /* margin between user inputs */
   --user-input-title-margin: 0.3em; /* margin between title and actual input */
 }
 
-/* Contains user inputs and login button */
+/* Contains data inputs and login button */
 .login-form-container {
   display: flex;
   flex-direction: column;
@@ -14,9 +14,9 @@
   justify-content: center;
 }
 
-/* User input --------------------------------- */
+/* Data inputs -------------------------------- */
 
-/* Contains all types of user input */
+/* Contains all user inputs */
 .user-input-container {
   width: var(--user-input-container-width);
   margin-left: auto;
@@ -31,13 +31,13 @@
   margin-bottom: var(--user-input-margin);
 }
 
-/* Input titles */
+/* Input title */
 .user-input p {
   text-align: left;
-  /* margin-top: var(--user-input-title-margin); */
   margin-bottom: var(--user-input-title-margin);
 }
 
+/* Input element */
 .user-input input {
   line-height: 1.5em;
   border: 2px solid #8e8e8e;

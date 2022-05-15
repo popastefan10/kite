@@ -16,6 +16,9 @@ code {
     monospace;
 }
 
+/* 
+  Common styling for buttons on this site
+*/
 button {
   margin: 0;
   padding: 1em;

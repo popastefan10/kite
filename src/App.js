@@ -13,7 +13,7 @@ class App extends React.Component {
     let displayedPage = localStorage.getItem("displayedPage") || "login";
 
     this.state = {
-      displayedPage: displayedPage,
+      displayedPage: displayedPage, // Tells the component which page to display
       userId: localStorage.getItem("userId"),
       userData: JSON.parse(localStorage.getItem("userData")),
       userFavouriteSpots: JSON.parse(
@@ -26,12 +26,13 @@ class App extends React.Component {
     this.handleUserLogout = this.handleUserLogout.bind(this);
   }
 
+  // Changes the page displayed on the App component
   handleDisplayedPageChange(newDisplayedPage) {
     localStorage.setItem("displayedPage", newDisplayedPage);
     this.setState({ displayedPage: newDisplayedPage });
   }
 
-  // Adds user data to state and local storage
+  // Adds user data to state and local storage when the user logs in
   handleUserLogin(userInfo) {
     localStorage.setItem("userId", userInfo.userId);
     this.setState({ userId: userInfo.userId });
@@ -48,7 +49,7 @@ class App extends React.Component {
     });
   }
 
-  // Removes user data from state and local storage
+  // Removes user data from state and local storage when the user logs out
   handleUserLogout() {
     localStorage.setItem("userId", null);
     localStorage.setItem("userData", null);
@@ -56,7 +57,7 @@ class App extends React.Component {
     this.setState({ userId: null, userData: null, userFavouriteSpots: null });
   }
 
-  // Conditional rendering
+  // Conditional rendering of the page displayed
   getDisplayedPage() {
     if (this.state.displayedPage == "login")
       return (
@@ -67,6 +68,7 @@ class App extends React.Component {
           }}
         />
       );
+
     return (
       <Dashboard
         userData={this.state.userData}

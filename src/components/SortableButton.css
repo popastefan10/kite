@@ -12,15 +12,18 @@
   align-content: center;
 }
 
+/* Button on hover */
 .sortable-button:hover {
   background-color: transparent;
 }
 
+/* Button's text */
 .sortable-button h3 {
   margin: 0;
   text-align: left;
 }
 
+/* Button's icon */
 .header-button-sort-icon {
   margin-left: auto;
   margin-top: auto;

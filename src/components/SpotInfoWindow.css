@@ -27,13 +27,13 @@
   height: var(--siw-head-height);
 }
 
-/* Class for moving elements to the left of the head */
+/* Class for moving elements to the left of the header */
 .siw-head .siw-head-left {
   display: flex;
   flex-direction: row;
 }
 
-/* Class for moving elements to the right of the head */
+/* Class for moving elements to the right of the header */
 .siw-head .siw-head-right {
   display: flex;
   flex-direction: row;
@@ -47,7 +47,7 @@
   margin-bottom: auto;
 }
 
-/* Star icon displayed on favorite spots */
+/* Golden star icon displayed on favorite spots */
 .siw-favorite-icon {
   margin-top: auto;
   margin-bottom: auto;
@@ -56,7 +56,7 @@
   color: #e8b100;
 }
 
-/* Close button */
+/* Close window button */
 .siw-close-button {
   height: var(--siw-head-height);
   width: var(--siw-head-height);
@@ -100,7 +100,7 @@
   margin-bottom: var(--siw-list-li-padding);
 }
 
-/* list element header */
+/* list element title */
 .siw-info-list h5 {
   filter: opacity(var(--siw-list-li-header-opacity));
 }

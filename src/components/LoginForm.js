@@ -1,6 +1,7 @@
 import React from "react";
 import "./LoginForm.css";
 
+// Login form containing inputs for user data and a login button
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +18,6 @@ class LoginForm extends React.Component {
   handleInputChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    console.log(`Input ${name} changed its value to ${value}`);
 
     this.setState({
       [name]: value,
@@ -28,6 +28,7 @@ class LoginForm extends React.Component {
     return (
       <div className={"login-form-container"}>
         <div className={"user-input-container"}>
+          {/* Username input */}
           <div className={"user-input username-input"}>
             <p>Username</p>
             <input
@@ -37,6 +38,8 @@ class LoginForm extends React.Component {
               onChange={this.handleInputChange}
             />
           </div>
+
+          {/* Password input */}
           <div className={"user-input password-input"}>
             <p>Password</p>
             <input
@@ -48,6 +51,7 @@ class LoginForm extends React.Component {
           </div>
         </div>
 
+        {/* Login button */}
         <div className={"login-button-container"}>
           <button
             className={"login-button"}

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Avatar.css";
 
+// User image displayed on Dashboard
 class Avatar extends React.Component {
   render() {
     return (

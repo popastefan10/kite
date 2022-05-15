@@ -3,8 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./SpotInfoWindow.css";
 
+// Custom info windows made with OverlayView wrapper
+// Contains data about a spot and controls to add or remove from favorite spots
 class SpotInfoWindow extends React.Component {
+  // Returns the button which lets the user add or remove the spot from favorite spots
   getAddToFavouritesButton() {
+    // If the spot is favorite it will display a golden star 
+    // and will let you to remove the spot from favorite spots
     if (this.props.isFavourite) {
       return (
         <button
@@ -22,6 +27,8 @@ class SpotInfoWindow extends React.Component {
       );
     }
 
+    // If the spot is not favorite it will hide the golden star
+    // and will let you to add the spot to favorite spots
     return (
       <button
         type="button"
@@ -47,6 +54,7 @@ class SpotInfoWindow extends React.Component {
         className={"spot-info-window"}
         style={{ backgroundColor: "white", display: displayValue }}
       >
+        {/* Header of the info window */}
         <div className="siw-head">
           <div className={"siw-head-left"}>
             <h3 className="">{spot.name}</h3>
@@ -68,6 +76,7 @@ class SpotInfoWindow extends React.Component {
           </div>
         </div>
 
+        {/* Body of the info window */}
         <div className={"siw-body"}>
           <div className={"siw-country-container"}>
             <p>{spot.country}</p>
@@ -95,6 +104,7 @@ class SpotInfoWindow extends React.Component {
           </div>
         </div>
 
+        {/* Footer of the info window */}
         <div className={"siw-foot"}>
           <div>
             {

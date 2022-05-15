@@ -1,5 +1,6 @@
 import React from "react";
 
+// Logout button displayed on the header of the Dashboard page
 class LogoutButton extends React.Component {
   render() {
     return (

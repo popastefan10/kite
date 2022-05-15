@@ -2,16 +2,18 @@ import React from "react";
 import SortableButton from "./SortableButton";
 import "./Table.css";
 
+// The actual table used in LocationTable component
 class Table extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      columnSorted: null,
-      sortAscending: true,
+      columnSorted: null, // Which column is sorted
+      sortAscending: true, // How this column is sorted
     };
   }
 
+  // When you click on a column header it will sort the entire table with respect to this column
   handleHeaderButtonClick(columnName) {
     return () => {
       this.setState((state, props) => {
@@ -22,12 +24,17 @@ class Table extends React.Component {
     };
   }
 
+  // Filters only the spots which contain in their name the text from the search bar
+  // It's not case-sensitive
   filterSpotsByName(spots, includeStr) {
     return spots.filter((spot) => spot.name.toLowerCase().includes(includeStr.toLowerCase()));
   }
 
+  // Sorts the spot object with respect to a column from the table
   sortSpotsByColumn(spots, columnName, sortAscending) {
     // Object that contains compare functions for every column
+    // Key: column name
+    // Value: function used to compare a column's contents
     let compareFunctions = {
       Name: (spotA, spotB) =>
         spotA.name.localeCompare(spotB.name) * (sortAscending ? 1 : -1),
@@ -46,13 +53,12 @@ class Table extends React.Component {
         (sortAscending ? 1 : -1),
     };
 
-    console.log();
-
     return spots.sort((spotA, spotB) =>
       compareFunctions[columnName](spotA, spotB)
     );
   }
 
+  // Returns the table's header
   getTableHeading() {
     let tableColumnNames = [
       "Name",
@@ -86,6 +92,7 @@ class Table extends React.Component {
     );
   }
 
+  // Returns a list of table rows for every spot
   getTableRows() {
     let spots = this.props.spots;
 

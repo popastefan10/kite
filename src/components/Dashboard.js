@@ -4,13 +4,17 @@ import Map from "./Map";
 import LocationTable from "./LocationTable";
 import fetchSpots from "../services/spotRequests";
 
+// Dashboard page
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { spots: [] };
+    this.state = { 
+      spots: [] // Array containing all the spots fetched from the API
+    };
   }
 
   componentDidMount() {
+    // Fetch the spots when the component is rendered for the first time
     fetchSpots((data) => this.setState({ spots: data }));
   }
 

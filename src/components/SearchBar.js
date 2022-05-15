@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./SearchBar.css";
 
+// Used in LocationTable to filter the spots
 class SearchBar extends React.Component {
   render() {
     return (
