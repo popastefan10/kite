@@ -1,3 +1,13 @@
+# Kite
+
+Website created to help people choose the destination for their next kitesurfing trip.
+
+## Description
+
+This website's main page, called the Dashboard, displays various kitesurfing locations all around the world. Each spot is displayed on a map, but also in a table, along with information about the location, weather conditions and other suggestions.
+
+![Dashboard.png](./Dashboard.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
