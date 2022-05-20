@@ -6,7 +6,14 @@ Website created to help people choose the destination for their next kitesurfing
 
 This website's main page, called the Dashboard, displays various kitesurfing locations all around the world. Each spot is displayed on a map, but also in a table, along with information about the location, weather conditions and other suggestions.
 
-![Dashboard.png](./Dashboard.png)
+You can see the spots marked on the map with red and yellow pins, the latter being used for your favorite spots. In order to see more details about a spot it's enough to click on its' marker, which will open an info window which also lets you add or remove a spot from favorites.
+
+![Dashboard.png](./public/readme/Dashboard.png)
+
+For a more detailed perspective on the kitesurfing locations you can see the table below the map. Here you will se all the information in a more compact form, which comes with several features. You can filter the spots by name, and you can sort the spots by country, name, wind probability and more, by clicking on the corresponding column.
+
+![Table.png](./public/readme/Table.png)
+![Table_filtered.png](./public/readme/Table_filtered.png)
 
 # Getting Started with Create React App
 
